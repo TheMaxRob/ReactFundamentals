@@ -9,7 +9,6 @@ function genRandomInt(max) {
 function Header() {
 
     const description = reactDescriptions[genRandomInt(2)];
-    console.log(genRandomInt(2));
   
     return (
       <header>
