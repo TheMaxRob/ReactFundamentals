@@ -7,7 +7,7 @@ import CoreConcept from './components/CoreConcept';
 import TabButton from './components/TabButton';
 
 function App() {
-  let [ selectedTopic, setSelectedTopic ]= useState('components');
+  let [ selectedTopic, setSelectedTopic ]= useState('');
 
   let tabContent = 'Please press a button';
 
@@ -47,7 +47,10 @@ function App() {
             <TabButton onSelect={() => handleSelect('state')}>State</TabButton>
           </menu>
 
-          <div id='tab-content'>
+
+          {!selectedTopic ? <p>Click a button to begin exploring these core topics!</p> : null}
+
+          {selectedTopic ? (<div id='tab-content'>
             <h3>
               {EXAMPLES[selectedTopic].title}
             </h3>
@@ -59,7 +62,7 @@ function App() {
                 {EXAMPLES[selectedTopic].code}
               </code>
             </pre>
-          </div>
+          </div>) : null}
         </section>
       </main>
     </div>
