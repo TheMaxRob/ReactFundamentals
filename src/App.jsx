@@ -1,10 +1,10 @@
 import { useState } from 'react';
 
-import { CORE_CONCEPTS } from './data';
 import { EXAMPLES } from './data';
 import Header from './components/Header';
-import CoreConcept from './components/CoreConcept';
 import TabButton from './components/TabButton';
+import CoreConcepts from './components/CoreConcepts';
+import { CORE_CONCEPTS } from './data';
 
 function App() {
   let [ selectedTopic, setSelectedTopic ]= useState('');
@@ -16,16 +16,10 @@ function App() {
   }
 
   return (
-    <div>
+    <>
       <Header />
       <main>
-        <section id='core-concepts'>
-         <h2>Core Concepts</h2>
-            <ul>
-                {CORE_CONCEPTS.map((conceptItem) => <CoreConcept key={conceptItem.title}concept={conceptItem} />)}
-            </ul>
-          
-        </section>
+        <CoreConcepts />
 
         <section id='examples'>
           <h2>Examples</h2>
@@ -51,7 +45,7 @@ function App() {
           </div>) : <p>Click a button to begin exploring these core topics!</p> }
         </section>
       </main>
-    </div>
+    </>
   );
 }
 
